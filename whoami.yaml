@@ -1,0 +1,7 @@
+- name: capture output of whoami command
+  hosts: testserver
+  tasks:
+    - name: command whoami
+      command: whoami
+      register: login
+    - debug: var=login

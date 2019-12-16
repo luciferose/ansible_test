@@ -1,0 +1,7 @@
+- name: show return value of ansible_local
+  hosts: testserver
+  tasks:
+    - name: print ansible_local
+      debug: var=ansible_local
+    - name: print book title
+      debug: msg="title of book is {{ ansible_local.example.book.title }}"
