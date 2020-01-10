@@ -1,6 +1,6 @@
 ---
 - name: Deploy mezzanine
-  host: testserver
+  hosts: testserver
   vars:
     user: "{{ ansible_ssh_user }}"
     proj_name: mezzanine-example
