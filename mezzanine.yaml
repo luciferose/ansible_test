@@ -27,7 +27,7 @@
     - secret.yaml
   tasks:
     - name: install yum packages
-      yum: name={{ item }} update_cache=yes cache_valid_time=3600
+      yum: name={{ item }} update_cache=yes
       become: True
       with_items:
       - git
