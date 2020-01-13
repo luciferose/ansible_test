@@ -32,7 +32,7 @@
       with_items:
       - git
       - libjpeg-devel
-      - libpq-devel
+      - postgresql-devel
       - memcached
       - nginx
       - postgresql
@@ -60,7 +60,7 @@
         name: "{{ database_user }}"
         password: "{{ db_pass }}"
       become: True
-      become_user: postgres
+      become_user: root
     - name: create the database
       postgresql_db:
         name: "{{ database_name }}"
@@ -69,7 +69,7 @@
         lc_ctype: "{{ locale }}"
         lc_collate: "{{ locale }}"
       become: True
-      become_user: postgres
+      become_user: root
     - name: generate the settings file
       template:
         sec: templates/local_settings.py,j2
