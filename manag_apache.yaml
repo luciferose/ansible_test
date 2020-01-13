@@ -1,5 +1,5 @@
 - name: play to setup web server
-  host: test-server
+  hosts: testserver
   tasks:
     - name: install apache
       yum:
