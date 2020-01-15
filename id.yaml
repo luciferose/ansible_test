@@ -5,9 +5,10 @@
       command: id -un
       register: login
     - debug: var=login
+
   hosts: testserver
   tasks:
-    - name: capture output of id command
+    - name: capture output of ls command
       command: ls -al
-      register: ls-al
-    - debug: var=ls-al
+      register: list
+    - debug: var=list
