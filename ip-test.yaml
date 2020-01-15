@@ -1,0 +1,4 @@
+- name: capture output of whoami command
+  hosts: testserver
+  tasks:
+    - debug: var=ansible_ens33.ipv4.address
