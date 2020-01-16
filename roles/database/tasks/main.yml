@@ -30,7 +30,7 @@
   become: True
   notify: restart postgres
 - name: create a user
-  postgresql_user:
+  postgresql_db:
     name: "{{ database_name }}"
     password: "{{ db_pass }}"
     encoding: UTF8
