@@ -29,6 +29,9 @@
     mode: 0640
   become: True
   notify: restart postgres
+- name: restart postgres
+  service: name=postgresql state=restarted 
+  become: True
 - name: create a user
   postgresql_user:
     name: "{{ database_user }}"
