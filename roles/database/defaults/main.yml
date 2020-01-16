@@ -1,0 +1,4 @@
+---
+# defaults file for database
+database_port: 5432
+locale: test

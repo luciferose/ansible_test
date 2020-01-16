@@ -1,0 +1,4 @@
+- name: test roles
+  hosts: testserver
+  roles:
+    - role: database

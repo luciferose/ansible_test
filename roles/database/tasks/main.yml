@@ -1,0 +1,41 @@
+---
+# tasks file for database
+- name: install yum packages
+  yum: name={{ item }} state=installed update_cache=yes
+  become: True
+  with_items:
+    - postgresql-libs
+    - postgresql
+    - python-psycopg2
+    - postgresql-server
+    - postgresql-contrib
+- name: init postgresql
+  shell: service postgresql initdb
+- name: copy postgresql conf file
+  copy:
+    src: postgresql.conf
+    dest: /var/lib/pgsql/data/postgresql.conf
+    owner: postgres
+    group: postgres
+    mode: 0640
+  become: True
+  notify: restart postgres
+- name: copy pg_hba conf file
+  copy:
+    src: pg_hba.conf
+    dest: /var/lib/pgsql/data/pg_hba.conf
+    owner: postgres
+    group: postgres
+    mode: 0640
+  become: True
+  notify: restart postgres
+- name: create a user
+  postgresql_user:
+    name: "{{ database_name }}"
+    password: "{{ db_pass }}"
+    encoding: UTF8
+    lc_ctype: "{{ locale }}"
+    lc_collate: "{{ locale }}"
+    template: template0
+  become: True
+  become_user: postgres

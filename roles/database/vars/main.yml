@@ -1,0 +1,5 @@
+---
+# vars file for database
+database_name: mezzanine
+database_user: mezzanine
+db_pass: 123456
