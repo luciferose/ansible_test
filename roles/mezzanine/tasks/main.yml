@@ -1,0 +1,19 @@
+---
+# tasks file for mezzanine
+- name: install package
+  yum: name={{ item }} state=installed update_cache=yes
+  become: True
+  with_items:
+    - git
+    - libjpeg-devel
+    - postgresql-devel
+    - memcached
+    - nginx
+    - python-devel
+    - python-pip
+    - python-psycopg2
+    - python-setuptools
+    - python-virtualenv
+    - supervisor
+- include django.yaml
+- include nginx.yaml

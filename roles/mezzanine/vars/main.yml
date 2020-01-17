@@ -1,0 +1,17 @@
+---
+# vars file for mezzanine
+mezzanine_user: "{{ ansible_ssh_user }}"
+mezzanine_venv_home: "{{ ansible_env.HOME }}"
+mezzanine_proj_name: mezzanine
+mezzanine_venv_path: "{{ mezzanine_venv_home }}/{{ mezzanine_proj_name }}"
+mezzanine_repo_url: git@github.com:lorin/mezzanine-example.git
+mezzanine_proj_dirname: project
+mezzanine_proj_path: "{{ mezzanine_venv_path }}/{{ mezzanine_proj_dirname }}"
+mezzanine_reps_path: requirements.txt
+mezzanine_python: "{{ mezzanine_venv_path }}/bin/python"
+mezzanine_manage: "{{mezzanine_python}} {{mezzanine_proj_path}}/manage.py"
+mezzanine_gunicorn_port: 8000
+mezzanine_conf_path: /etc/ningx/conf
+admin_pass: 123456
+live_hostname: 192.168.0.69
+domains: "{{ live_hostname }}"
