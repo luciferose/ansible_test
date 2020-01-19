@@ -16,3 +16,5 @@ admin_pass: 123456
 live_hostname: 192.168.0.69
 domains: "{{ live_hostname }}"
 ssl_enabled: True
+secret_key: b495a05c396843b6b47ac944a72c92ed
+nevercache_key: b5d87bb4e17c483093296fa321056bdc
