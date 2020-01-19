@@ -16,4 +16,4 @@
     - python-virtualenv
     - supervisor
 - include django.yaml
-#- include nginx.yaml
+- include nginx.yaml
