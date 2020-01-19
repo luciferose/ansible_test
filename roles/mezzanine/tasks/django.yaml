@@ -17,10 +17,9 @@
 - name: generate the setting file
   template: src=local_settings.py.j2 dest={{ mezzanine_proj_path }}/local_settings.py
 - name: sync database, apply migrations, collect static content
-  shell: cd  /root/mezzanine/project/
   django_manage:
     command: "{{ item }}"
-    app_path: "{{ mezzanine_venv_path }}"
+    app_path: "{{ mezzanine_venv_path }}/{{ mezzanine_proj_dirname }}"
   with_items:
     - syncdb
     - migrate
