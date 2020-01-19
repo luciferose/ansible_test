@@ -9,6 +9,7 @@
     - psycopg2
     - django-compressor
     - python-memcached
+    - mezzanine
 - name: install requirements.txt
   pip: >
     requirements={{ mezzanine_proj_path }}/{{ mezzanine_reps_path }}
